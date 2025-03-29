@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя Визитка</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Подключаем шрифты Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Подключаем иконки Font Awesome через CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+<!-- Переключатель темы -->
+<div class="theme-switch-wrapper">
+    <span class="theme-icon"><i class="fas fa-moon"></i></span>
+    <label class="theme-switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+    </label>
+</div>
+
+<h2 class="fade-in">Мои навыки</h2>
+<div class="skills-container">
+    <div class="skill fade-in delay-1">
+        <!-- содержимое -->
+    </div>
+    <div class="skill fade-in delay-2">
+        <!-- содержимое -->
+    </div>
+    <div class="skill fade-in delay-3">
+        <!-- содержимое -->
+    </div>
+    <div class="skill fade-in delay-4">
+        <!-- содержимое -->
+    </div>
+</div>
+<h2 class="fade-in">Портфолио</h2>
+<div class="portfolio-grid">
+    <div class="portfolio-item scale-in delay-1">
+        <!-- содержимое -->
+    </div>
+    <div class="portfolio-item scale-in delay-2">
+        <!-- содержимое -->
+    </div>
+    <div class="portfolio-item scale-in delay-3">
+        <!-- содержимое -->
+    </div>
+</div>
+<h2 class="fade-in">Связаться со мной</h2>
+<div class="contact-info">
+    <div class="contact-item fade-in delay-1">
+        <!-- содержимое -->
+    </div>
+    <div class="contact-item fade-in delay-2">
+        <!-- содержимое -->
+    </div>
+    <div class="contact-item fade-in delay-3">
+        <!-- содержимое -->
+    </div>
+</div>
+<div class="social-links fade-in delay-4">
+    <!-- содержимое -->
+</div>
+
+    <header>
+        <div class="container">
+            <h1>Иван Иванов</h1>
+            <p class="tagline">Веб-разработчик | Дизайнер | Фотограф</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">Обо мне</a></li>
+				<h2 class="fade-in">Обо мне</h2>
+<div class="about-content">
+    <div class="about-text slide-in-left">
+        <!-- содержимое -->
+    </div>
+    <div class="about-image slide-in-right">
+        <!-- содержимое -->
+    </div>
+</div>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#portfolio">Портфолио</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>Обо мне</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Привет! Я Иван, веб-разработчик из Москвы. Создаю современные и удобные сайты, которые помогают бизнесу расти.</p>
+                    <p>Имею более 5 лет опыта в разработке. Люблю чистый код, минимализм и функциональный дизайн.</p>
+                </div>
+                <div class="about-image">
+                    <!-- Здесь будет ваше фото -->
+                    <div class="profile-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section section-alt">
+        <div class="container">
+            <h2>Мои навыки</h2>
+            <div class="skills-container">
+                <div class="skill">
+                    <i class="fas fa-code"></i>
+                    <h3>HTML/CSS</h3>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Адаптивный дизайн</h3>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-camera"></i>
+                    <h3>Фотография</h3>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2>Портфолио</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Сайт компании "Альфа"</h3>
+                    <p>Корпоративный сайт с каталогом продукции</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Интернет-магазин "Бета"</h3>
+                    <p>Онлайн-магазин с интеграцией платежей</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Мобильное приложение "Гамма"</h3>
+                    <p>Приложение для учета личных финансов</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <h2>Связаться со мной</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>email@example.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+7 (999) 123-45-67</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Москва, Россия</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Иван Иванов. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
