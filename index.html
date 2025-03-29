@@ -4,85 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Моя Визитка</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Подключаем шрифты Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Подключаем иконки Font Awesome через CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Переключатель темы -->
-<div class="theme-switch-wrapper">
-    <span class="theme-icon"><i class="fas fa-moon"></i></span>
-    <label class="theme-switch">
-        <input type="checkbox" id="theme-toggle">
-        <span class="slider"></span>
-    </label>
-</div>
+    <!-- Прелоадер -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
 
-<h2 class="fade-in">Мои навыки</h2>
-<div class="skills-container">
-    <div class="skill fade-in delay-1">
-        <!-- содержимое -->
+    <!-- Переключатель темы -->
+    <div class="theme-switch-wrapper">
+        <span class="theme-icon"><i class="fas fa-moon"></i></span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
     </div>
-    <div class="skill fade-in delay-2">
-        <!-- содержимое -->
-    </div>
-    <div class="skill fade-in delay-3">
-        <!-- содержимое -->
-    </div>
-    <div class="skill fade-in delay-4">
-        <!-- содержимое -->
-    </div>
-</div>
-<h2 class="fade-in">Портфолио</h2>
-<div class="portfolio-grid">
-    <div class="portfolio-item scale-in delay-1">
-        <!-- содержимое -->
-    </div>
-    <div class="portfolio-item scale-in delay-2">
-        <!-- содержимое -->
-    </div>
-    <div class="portfolio-item scale-in delay-3">
-        <!-- содержимое -->
-    </div>
-</div>
-<h2 class="fade-in">Связаться со мной</h2>
-<div class="contact-info">
-    <div class="contact-item fade-in delay-1">
-        <!-- содержимое -->
-    </div>
-    <div class="contact-item fade-in delay-2">
-        <!-- содержимое -->
-    </div>
-    <div class="contact-item fade-in delay-3">
-        <!-- содержимое -->
-    </div>
-</div>
-<div class="social-links fade-in delay-4">
-    <!-- содержимое -->
-</div>
 
+    <!-- Заголовок -->
     <header>
         <div class="container">
-            <h1>Иван Иванов</h1>
-            <p class="tagline">Веб-разработчик | Дизайнер | Фотограф</p>
+            <h1 class="fade-in">Павел Яндевский </h1>
+            <p class="tagline fade-in delay-1">Веб-разработчик | Дизайнер | Фрилансер</p>
         </div>
     </header>
 
+    <!-- Навигация -->
     <nav>
         <div class="container">
             <ul>
-                <li><a href="#about">Обо мне</a></li>
-				<h2 class="fade-in">Обо мне</h2>
-<div class="about-content">
-    <div class="about-text slide-in-left">
-        <!-- содержимое -->
-    </div>
-    <div class="about-image slide-in-right">
-        <!-- содержимое -->
-    </div>
-</div>
+                <li><a href="#about" class="active">Обо мне</a></li>
                 <li><a href="#skills">Навыки</a></li>
                 <li><a href="#portfolio">Портфолио</a></li>
                 <li><a href="#contact">Контакты</a></li>
@@ -90,118 +43,184 @@
         </div>
     </nav>
 
+    <!-- Секция "Обо мне" -->
     <section id="about" class="section">
         <div class="container">
-            <h2>Обо мне</h2>
+            <h2 class="fade-in">Обо мне</h2>
             <div class="about-content">
-                <div class="about-text">
-                    <p>Привет! Я Иван, веб-разработчик из Москвы. Создаю современные и удобные сайты, которые помогают бизнесу расти.</p>
-                    <p>Имею более 5 лет опыта в разработке. Люблю чистый код, минимализм и функциональный дизайн.</p>
+                <div class="about-text slide-in-left">
+                    <p>Привет! Я Павел, веб-разработчик с более чем 5-летним опытом создания современных и отзывчивых веб-сайтов.</p>
+                    <p>Я специализируюсь на front-end разработке, создавая пользовательские интерфейсы, которые не только красивы, но и функциональны.</p>
+                    <p>Моя цель — помочь вашему бизнесу выделиться в интернете с помощью качественного веб-присутствия.</p>
                 </div>
-                <div class="about-image">
-                    <!-- Здесь будет ваше фото -->
-                    <div class="profile-placeholder">
-                        <i class="fas fa-user"></i>
+                <div class="about-image slide-in-right">
+                    <div class="pixar-character">
+                        <div class="head">
+                            <div class="hair-top"></div>
+                            <div class="hair-sides"></div>
+                            <div class="ears">
+                                <div class="ear left"></div>
+                                <div class="ear right"></div>
+                            </div>
+                            <div class="face">
+                                <div class="eyebrows">
+                                    <div class="eyebrow left"></div>
+                                    <div class="eyebrow right"></div>
+                                </div>
+                                <div class="eyes">
+                                    <div class="eye-socket left">
+                                        <div class="eye left">
+                                            <div class="iris">
+                                                <div class="pupil"></div>
+                                                <div class="highlight"></div>
+                                            </div>
+                                        </div>
+                                        <div class="eyelid top left"></div>
+                                        <div class="eyelid bottom left"></div>
+                                    </div>
+                                    <div class="eye-socket right">
+                                        <div class="eye right">
+                                            <div class="iris">
+                                                <div class="pupil"></div>
+                                                <div class="highlight"></div>
+                                            </div>
+                                        </div>
+                                        <div class="eyelid top right"></div>
+                                        <div class="eyelid bottom right"></div>
+                                    </div>
+                                </div>
+                                <div class="nose"></div>
+                                <div class="mouth">
+                                    <div class="lips"></div>
+                                </div>
+                                <div class="cheeks">
+                                    <div class="cheek left"></div>
+                                    <div class="cheek right"></div>
+                                </div>
+                            </div>
+                            <div class="neck"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Секция "Навыки" -->
     <section id="skills" class="section section-alt">
         <div class="container">
-            <h2>Мои навыки</h2>
+            <h2 class="fade-in">Мои навыки</h2>
             <div class="skills-container">
-                <div class="skill">
-                    <i class="fas fa-code"></i>
-                    <h3>HTML/CSS</h3>
+                <div class="skill fade-in delay-1">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5 & CSS3</h3>
+                    <p>Создание современных, отзывчивых и семантически правильных веб-страниц.</p>
                     <div class="skill-level">
-                        <div class="skill-bar" style="width: 90%"></div>
+                        <div class="skill-bar" style="width: 95%;"></div>
                     </div>
                 </div>
-                <div class="skill">
+                <div class="skill fade-in delay-2">
                     <i class="fab fa-js"></i>
                     <h3>JavaScript</h3>
+                    <p>Разработка интерактивных пользовательских интерфейсов и динамических веб-приложений.</p>
                     <div class="skill-level">
-                        <div class="skill-bar" style="width: 85%"></div>
+                        <div class="skill-bar" style="width: 90%;"></div>
                     </div>
                 </div>
-                <div class="skill">
+                <div class="skill fade-in delay-3">
+                    <i class="fab fa-react"></i>
+                    <h3>React</h3>
+                    <p>Создание современных одностраничных приложений с использованием React и Redux.</p>
+                    <div class="skill-level">
+                        <div class="skill-bar" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill fade-in delay-4">
                     <i class="fas fa-mobile-alt"></i>
                     <h3>Адаптивный дизайн</h3>
+                    <p>Разработка сайтов, которые отлично выглядят на всех устройствах.</p>
                     <div class="skill-level">
-                        <div class="skill-bar" style="width: 80%"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <i class="fas fa-camera"></i>
-                    <h3>Фотография</h3>
-                    <div class="skill-level">
-                        <div class="skill-bar" style="width: 75%"></div>
+                        <div class="skill-bar" style="width: 95%;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Секция "Портфолио" -->
     <section id="portfolio" class="section">
         <div class="container">
-            <h2>Портфолио</h2>
+            <h2 class="fade-in">Мои работы</h2>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Сайт компании "Альфа"</h3>
-                    <p>Корпоративный сайт с каталогом продукции</p>
-                </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item scale-in delay-1">
                     <div class="portfolio-image">
                         <i class="fas fa-store"></i>
                     </div>
-                    <h3>Интернет-магазин "Бета"</h3>
-                    <p>Онлайн-магазин с интеграцией платежей</p>
+                    <h3>Интернет-магазин</h3>
+                    <p>Разработка полнофункционального интернет-магазина с корзиной и оформлением заказа.</p>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item scale-in delay-2">
                     <div class="portfolio-image">
-                        <i class="fas fa-mobile-alt"></i>
+                        <i class="fas fa-blog"></i>
                     </div>
-                    <h3>Мобильное приложение "Гамма"</h3>
-                    <p>Приложение для учета личных финансов</p>
+                    <h3>Блог-платформа</h3>
+                    <p>Создание современной блог-платформы с системой комментариев и рейтингов.</p>
+                </div>
+                <div class="portfolio-item scale-in delay-3">
+                    <div class="portfolio-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Аналитическая панель</h3>
+                    <p>Разработка интерактивной аналитической панели для визуализации данных.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Секция "Контакты" -->
     <section id="contact" class="section section-alt">
         <div class="container">
-            <h2>Связаться со мной</h2>
+            <h2 class="fade-in">Связаться со мной</h2>
             <div class="contact-info">
-                <div class="contact-item">
+                <div class="contact-item fade-in delay-1">
                     <i class="fas fa-envelope"></i>
-                    <p>email@example.com</p>
+                    <p>shimohinp@yandex.ru</p>
                 </div>
-                <div class="contact-item">
+                <div class="contact-item fade-in delay-2">
                     <i class="fas fa-phone"></i>
-                    <p>+7 (999) 123-45-67</p>
+                    <p>+7 (996) 022-69-20</p>
                 </div>
-                <div class="contact-item">
+                <div class="contact-item fade-in delay-3">
                     <i class="fas fa-map-marker-alt"></i>
-                    <p>Москва, Россия</p>
+                    <p>Чита, Россия</p>
                 </div>
             </div>
+            <form id="contact-form" class="contact-form fade-in delay-4">
+          <div class="form-group">
+    <input type="text" name="name" placeholder="Ваше имя" required>
+</div>
+<div class="form-group">
+    <input type="email" name="email" placeholder="Ваш email" required>
+</div>
+<div class="form-group">
+    <textarea name="message" placeholder="Ваше сообщение" required></textarea>
+</div>
+
+                <button type="submit" class="btn">Отправить сообщение</button>
+            </form>
             <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link fade-in delay-1"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link fade-in delay-2"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link fade-in delay-3"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link fade-in delay-4"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </section>
 
+    <!-- Подвал -->
     <footer>
         <div class="container">
-            <p>&copy; 2023 Иван Иванов. Все права защищены.</p>
+            <p>&copy; 2025 Павел Яндевский. Все права защищены.</p>
         </div>
     </footer>
 
