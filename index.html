@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<!-- Предзагрузка критических ресурсов -->
+<link rel="preload" href="styles.css" as="style">
+<link rel="preload" href="script.js" as="script">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Моя Визитка</title>
@@ -9,6 +14,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="bg-accent"></div>
+
+
     <!-- Прелоадер -->
     <div id="preloader">
         <div class="loader"></div>
@@ -23,13 +31,14 @@
         </label>
     </div>
 
-    <!-- Заголовок -->
-    <header>
-        <div class="container">
-            <h1 class="fade-in">Павел Яндевский </h1>
-            <p class="tagline fade-in delay-1">Веб-разработчик | Дизайнер | Фрилансер</p>
-        </div>
-    </header>
+<!-- Заголовок -->
+<header>
+    <div class="container">
+        <h1 class="fade-in">Привет! Я <span class="name">Павел Яндевский</span></h1>
+        <h2>Я <span class="typewriter" data-text='["Веб-разработчик", "Дизайнер", "Фрилансер"]'></span></h2>
+    </div>
+</header>
+
 
     <!-- Навигация -->
     <nav>
@@ -208,12 +217,18 @@
 
                 <button type="submit" class="btn">Отправить сообщение</button>
             </form>
-            <div class="social-links">
-                <a href="#" class="social-link fade-in delay-1"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-link fade-in delay-2"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link fade-in delay-3"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-link fade-in delay-4"><i class="fab fa-github"></i></a>
-            </div>
+<div class="social-links">
+    <a href="https://vk.com/indevskiy" class="social-link" target="_blank" title="ВКонтакте">
+        <i class="fab fa-vk"></i>
+    </a>
+    <a href="https://t.me/indevskiy" class="social-link" target="_blank" title="Телеграм">
+        <i class="fab fa-telegram-plane"></i>
+    </a>
+    <a href="https://wa.me/89143517581" class="social-link" target="_blank" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
         </div>
     </section>
 
