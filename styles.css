@@ -5,9 +5,28 @@
     box-sizing: border-box;
 }
 
+@keyframes floatGradient1 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(20px, -20px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes floatGradient2 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-20px, 20px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes floatGradient3 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(15px, 15px); }
+    100% { transform: translate(0, 0); }
+}
+
 :root {
     --bg-color: #ffffff;
     --bg-alt-color: #f9f9f9;
+    --bg-alt-color-rgb: 249, 249, 249;
     --text-color: #333;
     --text-light-color: #666;
     --primary-color: #6e8efb;
@@ -18,19 +37,61 @@
     --footer-bg: #333;
     --footer-color: white;
 }
-
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
+    position: relative;
+    overflow-x: hidden;
     transition: background-color 0.3s, color 0.3s;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    top: -50vh;
+    left: -50vh;
+    width: 150vh;
+    height: 150vh;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(110,142,251,0.4) 0%, rgba(110,142,251,0) 70%);
+    z-index: -1;
+    animation: floatGradient1 15s ease-in-out infinite;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    bottom: -50vh;
+    right: -50vh;
+    width: 150vh;
+    height: 150vh;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(167,119,227,0.4) 0%, rgba(167,119,227,0) 70%);
+    z-index: -1;
+    animation: floatGradient2 18s ease-in-out infinite;
+}
+
+/* Дополнительный градиентный шар */
+.bg-accent {
+    content: '';
+    position: fixed;
+    top: 30vh;
+    right: 10vw;
+    width: 80vh;
+    height: 80vh;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(252,92,125,0.2) 0%, rgba(252,92,125,0) 70%);
+    z-index: -1;
+    pointer-events: none;
+    animation: floatGradient3 20s ease-in-out infinite;
+}
 /* Темная тема */
 body.dark-theme {
     --bg-color: #121212;
     --bg-alt-color: #1e1e1e;
+    --bg-alt-color-rgb: 30, 30, 30;
     --text-color: #e0e0e0;
     --text-light-color: #b0b0b0;
     --card-bg: #2d2d2d;
@@ -38,12 +99,19 @@ body.dark-theme {
     --footer-bg: #000;
 }
 
+body.dark-theme::before {
+    background: radial-gradient(circle, rgba(110,142,251,0.15) 0%, rgba(110,142,251,0) 70%);
+}
+
+body.dark-theme::after {
+    background: radial-gradient(circle, rgba(167,119,227,0.15) 0%, rgba(167,119,227,0) 70%);
+}
+
 .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
-
 /* Прелоадер */
 #preloader {
     position: fixed;
@@ -89,7 +157,6 @@ header h1 {
     font-size: 1.2rem;
     opacity: 0.9;
 }
-
 /* Навигация */
 nav {
     background-color: var(--card-bg);
@@ -126,14 +193,20 @@ nav a.active {
     color: var(--primary-color);
     border-bottom: 2px solid var(--primary-color);
 }
-
 /* Секции */
 .section {
     padding: 80px 0;
+    position: relative;
 }
 
 .section-alt {
-    background-color: var(--bg-alt-color);
+    background-color: rgba(var(--bg-alt-color-rgb), 0.4);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
 .section h2 {
@@ -180,7 +253,6 @@ nav a.active {
     display: flex;
     justify-content: center;
 }
-
 /* Секция "Навыки" */
 .skills-container {
     display: grid;
@@ -189,16 +261,25 @@ nav a.active {
 }
 
 .skill {
-    background-color: var(--card-bg);
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 25px;
     border-radius: 8px;
     box-shadow: var(--card-shadow);
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .skill:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .skill {
+    background-color: rgba(45, 45, 45, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .skill i {
@@ -227,7 +308,6 @@ nav a.active {
     height: 100%;
     background: var(--header-gradient);
 }
-
 /* Секция "Портфолио" */
 .portfolio-grid {
     display: grid;
@@ -236,11 +316,19 @@ nav a.active {
 }
 
 .portfolio-item {
-    background-color: var(--card-bg);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--card-shadow);
     transition: transform 0.3s;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark-theme .portfolio-item {
+    background-color: rgba(45, 45, 45, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .portfolio-item:hover {
@@ -268,18 +356,41 @@ nav a.active {
     padding: 0 20px 20px;
     color: var(--text-light-color);
 }
-
-/* Секция "Контакты" */
+/* Секция "Контакты" - обновленные стили */
 .contact-info {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три равные колонки */
+    gap: 20px;
     margin-bottom: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-item {
     text-align: center;
-    margin: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Одинаковая высота для всех элементов */
+}
+
+body.dark-theme .contact-item {
+    background-color: rgba(45, 45, 45, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
 }
 
 .contact-item i {
@@ -288,9 +399,11 @@ nav a.active {
     margin-bottom: 10px;
 }
 
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto 40px;
+/* Медиа-запрос для адаптивности на мобильных устройствах */
+@media (max-width: 768px) {
+    .contact-info {
+        grid-template-columns: 1fr; /* Одна колонка на мобильных */
+    }
 }
 
 .form-group {
@@ -301,17 +414,23 @@ nav a.active {
 .form-group textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    background-color: var(--card-bg);
+    background-color: rgba(255, 255, 255, 0.7);
     color: var(--text-color);
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+body.dark-theme .form-group input,
+body.dark-theme .form-group textarea {
+    background-color: rgba(30, 30, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--primary-color);
     outline: none;
+    box-shadow: 0 0 0 3px rgba(110, 142, 251, 0.2);
 }
 
 .form-group textarea {
@@ -357,7 +476,6 @@ nav a.active {
 .social-link:hover {
     transform: translateY(-5px);
 }
-
 /* Подвал */
 footer {
     background-color: var(--footer-bg);
@@ -426,7 +544,6 @@ input:checked + .slider {
 input:checked + .slider:before {
     transform: translateX(26px);
 }
-
 /* Анимации */
 .fade-in {
     opacity: 0;
@@ -503,7 +620,6 @@ input:checked + .slider:before {
         font-size: 2rem;
     }
 }
-
 /* Стили для анимированного персонажа в стиле Pixar */
 .pixar-character {
     width: 220px;
@@ -552,7 +668,6 @@ input:checked + .slider:before {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-
 .hair-top {
     position: absolute;
     top: 0;
@@ -574,7 +689,6 @@ input:checked + .slider:before {
     border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
     z-index: 1;
 }
-
 
 .ears {
     position: absolute;
@@ -625,7 +739,6 @@ input:checked + .slider:before {
     right: 30px;
     transform: rotate(5deg);
 }
-
 .eyes {
     position: absolute;
     top: 75px;
@@ -722,7 +835,6 @@ input:checked + .slider:before {
         transform: translateY(-50%);
     }
 }
-
 .nose {
     position: absolute;
     top: 115px;
@@ -797,4 +909,125 @@ input:checked + .slider:before {
     height: 20px;
     background: #ffdbac;
     border-radius: 10px 10px 0 0;
+}
+
+/* Добавьте в CSS */
+/* Микроанимации для кнопок */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    20% {
+        transform: scale(25, 25);
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(40, 40);
+    }
+}
+
+/* Микроанимации для полей ввода */
+.form-group input:focus,
+.form-group textarea:focus {
+    animation: pulse 1s;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(110, 142, 251, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(110, 142, 251, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(110, 142, 251, 0); }
+}
+
+.typewriter {
+    position: relative;
+    color: var(--primary-color);
+    display: inline-block;
+}
+
+.typewriter::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.typewriter {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff, #f8e3ff); /* Градиент от белого к светло-лиловому */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+.typewriter::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    animation: blink 0.7s infinite;
+    -webkit-text-fill-color: #ffffff; /* Белый цвет для курсора */
+	
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.name {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.typewriter {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff, #f8e3ff); /* Градиент от белого к светло-лиловому */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3); /* Светлая тень для эффекта свечения */
+}
+
+.typewriter::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    animation: blink 0.7s infinite;
+    -webkit-text-fill-color: #ffffff; /* Белый цвет для курсора */
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
