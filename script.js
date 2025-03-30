@@ -228,3 +228,48 @@ try {
 } catch (error) {
     console.error("Произошла ошибка:", error);
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const typewriterElements = document.querySelectorAll('.typewriter');
+    
+    typewriterElements.forEach(element => {
+        const textArray = JSON.parse(element.dataset.text);
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+        
+        function type() {
+            const currentText = textArray[textIndex];
+            
+            if (isDeleting) {
+                // Удаление текста
+                element.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50;
+            } else {
+                // Печать текста
+                element.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
+            
+            // Если закончили печатать текст
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                typingSpeed = 1000; // Пауза перед удалением
+            } 
+            // Если закончили удалять текст
+            else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % textArray.length;
+                typingSpeed = 500; // Пауза перед печатью нового текста
+            }
+            
+            setTimeout(type, typingSpeed);
+        }
+        
+        type();
+    });
+});
